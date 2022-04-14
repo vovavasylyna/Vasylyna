@@ -1,4 +1,4 @@
-# 5 ways in which social media and tech are harming our attention
+# 5 ways social media harming attention
 
 1. Social media and tech are designed to train our minds to crave frequent rewards. They make us hunger for likes. This craving will drive you to pick up your phone more and more. You’ll break away from your work and your relationships to seek a sweet, sweet hit of retweets.
 2. These sites push you to switch tasks more frequently than you normally would—to pick up your phone, or click over to Facebook on your laptop. When you do this, all the costs to your attention caused by switching kick in. The evidence there shows this is as bad for the quality of your thinking as getting drunk or stoned.
