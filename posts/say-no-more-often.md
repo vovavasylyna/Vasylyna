@@ -1,4 +1,4 @@
-# Improve your work by saying no more often
+# Say no more often
 
 Most productivity advice focuses on speed and efficiency: more user-friendly tools allow you to get better results with fewer moves. High-speed Internet access means we can be contacted wherever we are, and predictive typing of words and sentences on the keyboard means we can respond faster than ever before. Google gives us all kinds of information in seconds, and AI may soon figure out what we need before we even know it.
 
