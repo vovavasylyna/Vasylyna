@@ -1,4 +1,4 @@
-# RSS, and How To Subscribe To My Blog
+# RSS
 
 *If you're looking for a direct RSS feed of my blog, here it is 
 [https://vasylyna.net/atom.xml](/atom.xml)*
