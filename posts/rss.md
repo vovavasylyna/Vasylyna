@@ -15,10 +15,6 @@ RSS (Really Simple Syndication) is a subscription mechanism for blogs and other 
 
 To use RSS, you need an RSS reader. This is a program that knows which sites you like and monitors them for updates. When sites are updated, the latest publications are automatically downloaded, and you get the latest issue of your own “magazine”, which contains everything new from your favorite websites.
 
-This is what my reader looks like:
-
-<img src="feedly.jpeg" alt="rss reader"/>
-
 Here are all the read posts from all the blogs I follow. I don’t have to go to their websites, open a hundred bookmarks in the browser as everything is in one place. There is no need to wait for the page to open - everything has already been downloaded. I'm not afraid of missing something important because everything is saved. I’ll read some right away, some over the weekend, some the next time I don't have access to the Internet. I also will decide to skip stuff so I’ll just tap it so that it stops looking like unread.
 
 ### How to subscribe to someone via RSS? 
