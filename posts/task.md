@@ -1,4 +1,4 @@
-# The problem of understanding the task
+# Understanding the task
 
 When you write any sort of an instruction, a technical specificaiton or a brief to your colleagues or contractors, you yourself are responsible to ensure that they understand the task. The problem here is you won’t be able to convey the task to these people, even with a super detailed specification, because they won’t read it carefully, even if it is very well written. And if it is short, some important details will be missing, so nothing will be clear.
 
