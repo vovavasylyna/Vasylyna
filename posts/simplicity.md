@@ -1,4 +1,4 @@
-# On simplicity, minimalism and stress
+# On simplicity & stress
 
 As I strive for a more simple life, I'm learning that minimalism isn't just about tidying up my place and organizing my possessions. It's a journey that starts from the inside and goes way beyond decluttering.
 
