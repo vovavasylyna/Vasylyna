@@ -1,4 +1,4 @@
-# Conversion rate optimization is not a panacea
+# Conversion rate optimization
 
 Most of those who somehow address the topic of conversion rate at work don't really control it. Be it website-specific, or offline. It's a common temptation, especially in areas like A/B testing or UX improvements, to promise an increase in conversion rate from X to Y. 
 
