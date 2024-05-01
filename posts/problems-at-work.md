@@ -1,4 +1,4 @@
-# The guide to solving problems at work
+# Solving problems at work
 
 **Step 1**: Describe the problem in a message you plan to send to a co-worker or a client. Write it down as detailed as possible.
 
