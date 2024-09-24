@@ -1,7 +1,5 @@
 # Kurakhove
 
-2024-09-24
-
 Russia has now almost destroyed Kurakhove, a small town in the Donetska region of Ukraine, a place where I was born and raised. 
 
 I'm now experiencing a variety of new, odd emotions in regards to all this. 
@@ -15,11 +13,5 @@ Two days ago, Russians killed the principal of the school where I studied. She w
 Starting today no one is allowed to drive to Kurakhove except evacuation buses and volunteers who are engaged in humanitarian aid. Public transportation stopped working weeks if not months ago. 
 
 The world we're shaping and living in is still very fragile. There's a very long journey ahead to make it peaceful and prosperous. 
-
-![street](/public/images/street.jpg)
-
-![sportcomplex](/public/images/sportcomplex.jpg)
-
-![Kurakhove on a Deepstate Map](/public/images/kurakhove-deepstatemap.jpg)
 
 Map [here](https://deepstatemap.live/en/#11/48.0115158/37.2745514)
