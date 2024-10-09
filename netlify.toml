@@ -1,0 +1,9 @@
+[build]
+command = "./blog.sh"
+publish = "build"
+
+[build.environment]
+PATH = "/opt/buildhome/.nvm/versions/node/v14.15.1/bin:/usr/local/bin:/usr/bin:/bin:/opt/build/repo/.bin"
+
+[context.production]
+command = "apt-get install -y gsed && ./blog.sh"
