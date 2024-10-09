@@ -1,3 +1,0 @@
-[build]
-  command = "brew install gnu-sed && ./blog.sh"
-  publish = "build"

@@ -9,15 +9,15 @@ index_tsv() {
 	do
 		created=$(git log --pretty='format:%aI' "$f" 2> /dev/null | tail -1)
 		updated=$(git log --pretty='format:%aI' "$f" 2> /dev/null | head -1)
-		title=$(gsed -n '/^# /{s/# //p; q}' "$f")
+		title=$(sed -n '/^# /{s/# //p; q}' "$f")
 		printf '%s\t%s\t%s\t%s\n' "$f" "${title:="No Title"}" "${created:="draft"}" "${updated:="draft"}"
 	done
 }
 
 index_html() {
 	# Print header
-	title=$(gsed -n '/^# /{s/# //p; q}' index.md)
-	gsed "s/{{TITLE}}/$title/" header.html
+	title=$(sed -n '/^# /{s/# //p; q}' index.md)
+	sed "s/{{TITLE}}/$title/" header.html
 
 	# Intro text
 	$MARKDOWN index.md
@@ -25,21 +25,21 @@ index_html() {
 	# Posts
 	while read -r f title created updated; do
 		if [ "$created" = "draft" ] && [ "$2" = "hide-drafts" ]; then continue; fi
-		link=$(echo "$f" | gsed -E 's|.*/(.*).md|\1.html|')
-		created=$(echo "$created" | gsed -E 's/T.*//')
+		link=$(echo "$f" | sed -E 's|.*/(.*).md|\1.html|')
+		created=$(echo "$created" | sed -E 's/T.*//')
 	 	echo "$created &mdash; <a href=\"$link\">$title</a><br/>"
 	done < "$1"
 }
 
 atom_xml() {
-	uri=$(gsed -rn '/atom.xml/ s/.*href="([^"]*)".*/\1/ p' header.html)
-	host=$(echo "$uri" | gsed -r 's|.*//([^/]+).*|\1|')
+	uri=$(sed -rn '/atom.xml/ s/.*href="([^"]*)".*/\1/ p' header.html)
+	host=$(echo "$uri" | sed -r 's|.*//([^/]+).*|\1|')
 	first_commit_date=$(git log --pretty='format:%ai' . | cut -d ' ' -f1 | tail -1)
 
 	cat <<EOF
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<title>$(gsed -n '/^# /{s/# //p; q}' index.md)</title>
+	<title>$(sed -n '/^# /{s/# //p; q}' index.md)</title>
 	<link href="$uri" rel="self" />
 	<updated>$(date -u +"%Y-%m-%dT%H:%M:%SZ")</updated>
 	<author>
@@ -51,14 +51,14 @@ EOF
 	while read -r f title created updated; do
 		if [ "$created" = "draft" ]; then continue; fi
 
-		day=$(echo "$created" | gsed 's/T.*//')
-		content=$($MARKDOWN "$f" | gsed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g')
+		day=$(echo "$created" | sed 's/T.*//')
+		content=$($MARKDOWN "$f" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g')
 
 		cat <<EOF
 	<entry>
 		<title>$title</title>
 		<content type="html">$content</content>
-		<link href="$(echo "$f" | gsed -E 's|posts/(.*).md|\1.html|')"/>
+		<link href="$(echo "$f" | sed -E 's|posts/(.*).md|\1.html|')"/>
 		<id>tag:$host,$day:$f</id>
 		<published>$created</published>
 		<updated>$updated</updated>
@@ -71,9 +71,9 @@ EOF
 
 write_page() {
 	filename=$1
-	target=$(echo "$filename" | gsed -r 's|\w+/(.*).md|build/\1.html|')
-	created=$(echo "$3" | gsed 's/T.*//')
-	updated=$(echo "$4" | gsed 's/T.*//')
+	target=$(echo "$filename" | sed -r 's|\w+/(.*).md|build/\1.html|')
+	created=$(echo "$3" | sed 's/T.*//')
+	updated=$(echo "$4" | sed 's/T.*//')
 	dates_text="Written on ${created}."
 	if [ "$created" != "$updated" ]; then
 		dates_text="$dates_text Last updated on ${updated}."
@@ -81,9 +81,9 @@ write_page() {
 	title=$2
 
 	$MARKDOWN "$filename" | \
-		gsed "$ a <small>$dates_text</small>" | \
+		sed "$ a <small>$dates_text</small>" | \
 		cat header.html - |\
-		gsed "s/{{TITLE}}/$title/" \
+		sed "s/{{TITLE}}/$title/" \
 		> "$target"
 }
 
