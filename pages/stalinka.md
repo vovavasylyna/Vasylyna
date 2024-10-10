@@ -26,11 +26,13 @@ Preparing old parquet for transportation to storage while the apartment is under
 
 **May 28, 2024**<br> 
 Demolition and removal phase completed
+
 **July 4, 2024**<br> 
 Interior design project completed
 
 **Aug 30, 2024**<br> 
 Imagicasa, a Belgian interior magazine, [published](https://imagicasa.be/en/story/wabi-sabi-in-a-stalinka-flat) an article about our design project.
+
 **Sep 24, 2024**<br> 
 Replacing old heating radiators and pipes with the new ones
 
