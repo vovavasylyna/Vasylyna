@@ -7,7 +7,7 @@ IFS='	'
 index_tsv() {
 	for f in "$1"/*.md
 	do
-		created=$(git log --pretty='format:%aI' "$f" 2> /dev/null | tail -1)
+		created=$(git log --pretty='format:%aI' "$f" 2> /dev/null | head -1)
 		updated=$(git log --pretty='format:%aI' "$f" 2> /dev/null | head -1)
 		title=$(sed -n '/^# /{s/# //p; q}' "$f")
 		printf '%s\t%s\t%s\t%s\n' "$f" "${title:="No Title"}" "${created:="draft"}" "${updated:="draft"}"
