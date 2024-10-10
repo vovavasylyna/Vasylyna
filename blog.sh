@@ -52,7 +52,7 @@ EOF
 		if [ "$created" = "draft" ]; then continue; fi
 
 		day=$(echo "$created" | sed 's/T.*//')
-		content=$($MARKDOWN "$f" | gsed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g')
+		content=$($MARKDOWN "$f" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g')
 
 		cat <<EOF
 	<entry>
