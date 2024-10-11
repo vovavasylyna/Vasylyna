@@ -31,43 +31,42 @@ index_html() {
 	done < "$1"
 }
 
-atom_xml() {
-	uri=$(sed -rn '/atom.xml/ s/.*href="([^"]*)".*/\1/ p' header.html)
-	host=$(echo "$uri" | sed -r 's|.*//([^/]+).*|\1|')
-	first_commit_date=$(git log --pretty='format:%ai' . | cut -d ' ' -f1 | tail -1)
+rss_xml() {
+  uri=$(sed -rn '/rss.xml/ s/.*href="([^"]*)".*/\1/ p' header.html)
+  host=$(echo "$uri" | sed -r 's|.*//([^/]+).*|\1|')
 
-	cat <<EOF
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-	<title>$(sed -n '/^# /{s/# //p; q}' index.md)</title>
-	<link href="$uri" rel="self" />
-	<updated>$(date -u +"%Y-%m-%dT%H:%M:%SZ")</updated>
-	<author>
-		<name>$(git config user.name)</name>
-	</author>
-	<id>tag:$host,$first_commit_date:default-atom-feed</id>
+  cat <<EOF
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Volodymyr Vasylyna's Website</title>
+  <link>$uri</link>
+  <description>Volodymyr Vasylyna's Website and Blog</description>
+  <lastBuildDate>$(date -u +"%a, %d %b %Y %H:%M:%S %z")</lastBuildDate>
+  <language>en-us</language>
 EOF
 
-	while read -r f title created updated; do
-		if [ "$created" = "draft" ]; then continue; fi
+  while read -r f title created updated; do
+    if [ "$created" = "draft" ]; then continue; fi
 
-		day=$(echo "$created" | sed 's/T.*//')
-		content=$($MARKDOWN "$f" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g')
+    day=$(echo "$created" | sed 's/T.*//')
+    content=$($MARKDOWN "$f")
 
-		cat <<EOF
-	<entry>
-		<title>$title</title>
-		<content type="html">$content</content>
-		<link href="$(echo "$f" | sed -E 's|posts/(.*).md|\1.html|')"/>
-		<id>tag:$host,$day:$f</id>
-		<published>$created</published>
-		<updated>$updated</updated>
-	</entry>
+    cat <<EOF
+  <item>
+    <title>$title</title>
+    <link>$(echo "$f" | sed -E 's|posts/(.*).md|\1.html|')</link>
+    <pubDate>$(date -d "$created" +"%a, %d %b %Y %H:%M:%S %z")</pubDate>
+    <description><![CDATA[$content]]></description>
+  </item>
 EOF
-	done < "$1"
+  done < "$1"
 
-	echo '</feed>'
+  echo '</channel></rss>'
 }
+
+rss_xml build/posts.tsv > build/rss.xml
+
 
 write_page() {
 	filename=$1
